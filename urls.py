@@ -18,8 +18,9 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework import routers
 #from rest_framework.routers import DefaultRouter
-from blog.views import PostViewSet
+from blog.blog_views import PostViewSet
 from home import home_views #importing views from the home application
+
 
 
 #if socket.gethostname()=='g-race':
@@ -37,8 +38,10 @@ router.register(r'api/posts', viewset=PostViewSet)
 admin.autodiscover()
 #urlpatterns = router.urls
 urlpatterns = [
+    #url(r'^$', home_views.index, name='home'),
+    url(r'', include('blog.urls')),
+    url(r'', include('home.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', home_views.index, name='home'),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
