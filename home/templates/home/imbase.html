@@ -1,0 +1,48 @@
+{% load staticfiles %} <!--load css or static files-->
+<html>
+<head>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<!--Above is a link to a font imported from google fonts-->
+<link rel="stylesheet" href="{% static 'css/imaginemaiblog.css' %}">
+<!--above is a link to my css file for the blog-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+    <title>Imagine Mai</title>
+</head>
+<body>
+  <div class="page-header">
+      <h1><a href="/">Imagine Mai</a><span style="font-size:30px;color:#000000;cursor:pointer" onclick="openNav()"> &#9826;</span></h1>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<div class="overlay-content">
+  <h2><a href="/">Imagine Mai</a></h2>
+  <a href="/">about</a>
+  <a href="/">blog posts</a>
+  <a href="/">contact</a>
+  <a href="/">admin login</a>
+
+  </div>
+  </div>
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+</script>
+</div>
+  <div class="content container">
+      <div class="row">
+          <div class="col-md-8">
+          {% block content %}
+          {% endblock %}
+          </div>
+      </div>
+  </div>
+</body>
+</html>
