@@ -87,14 +87,7 @@ p{
 	font-size: 14;
 }
 body {
-    /*padding-left: 15px; this adds a margin on the left*/
-	/*background-color: lightblue;*/
-	/*background-image: url(images/talithagrace_3.jpg);*/
-	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 10%;
-	/*background-size: 100% 180%;*/
-	background-size: cover; /*this mean the image automatically resizes for the browser*/
+
 
 }
 .overlay {
