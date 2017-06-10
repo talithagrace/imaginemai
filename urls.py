@@ -37,8 +37,8 @@ router.register(r'api/posts', viewset=PostViewSet)
 admin.autodiscover()
 #urlpatterns = router.urls
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home_views.index, name='home'),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
