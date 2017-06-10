@@ -39,9 +39,9 @@ li a
 	display: block;
 	/*margin-left: 600px;*/
 	width: auto;
-    color: #000000;
-    padding: 8px 16px;
-    text-decoration: none;
+  color: #000000;
+  padding: 8px 16px;
+  text-decoration: none;
 	font-family: Courgette, cursive;
 	font-size: 16;
 	text-align: center;
@@ -52,32 +52,62 @@ li a
 
 }
 
-h1, h2, h3, h4 {
+h1 {
     font-family: 'Courgette', cursive;
-		text-align: center;
-
+		/*text-align: center;*/
 }
+
+h2 {
+    font-family: 'Courgette', cursive;
+}
+
 
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #000000;
-    /*float: right;*/
-    font-size: 16;
+  color: #000000;
+  /*float: right;*/
+  font-size: 16;
 	font-family: Courgette, cursive;
 	font-weight: 900;
-    /*margin-left: 0px;*/
+  /*margin-left: 0px;*/
 }
+
+.date {
+	color: #828282;
+}
+
+.post {
+    margin-bottom: 70px;
+
+}
+
+.post h1 a, h2 a, .post h1 a:visited, h2 a:visited, h3 a:visited {
+    color: #000000;
+		border-style: none;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+
 
 .blogintro{
 	margin-left: 500px;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 h1 a {
     color: #A9A9A9;
 	font-family: Courgette, cursive;
 	font-size: 24;
-	text-align: center;
+	/*text-align: center;*/
+}
+
+h2 a {
+    color: #A9A9A9;
+	font-family: Courgette, cursive;
+	font-size: 24;
 }
 
 
