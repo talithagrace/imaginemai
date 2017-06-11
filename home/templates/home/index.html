@@ -8,17 +8,18 @@
 <body>
 <div class="blogintro">
 <h1><a href="/">...a lifestyle blog</a></h1>
+</div>
 
 <div class="slideshow-container">
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 2</div>
-  <img src="{% static 'css/images/london_2.jpg' %}" style="max-width:170%">
+  <div class="homeslide"><img src="{% static 'css/images/london_2.jpg' %}" style="width:100%"></div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 2</div>
-  <img src="{% static 'css/images/london_1.jpg' %}" style="max-width:170%">
+  <div class="homeslide"><img src="{% static 'css/images/london_1.jpg' %}" style="width:100%"></div>
 </div>
 
 
@@ -51,7 +52,7 @@ function showSlides() {
     setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
 </script>
-</div>
+
 </body>
 {% endblock %}
 </html>

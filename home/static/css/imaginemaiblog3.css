@@ -95,9 +95,9 @@ h2 {
 
 .blogintro{
 	position:relative;
-	margin: 0 auto;
-	/*margin-left: 0px;
-	text-align: center;*/
+	/*margin: 0 auto;*/
+	margin-left: 500px;
+	text-align: center;
 }
 
 h1 a {
@@ -120,17 +120,8 @@ p{
 	font-size: 14;
 }
 body {
-<<<<<<< HEAD:home/static/css/imaginemaiblog.css
-
-=======
-    /*padding-left: 15px; this adds a margin on the left*/
-	/*background-color: lightblue;*/
-	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 10%;*/
-	/*background-size: 100% 180%;*/
-	/*background-size: cover;*/ /*this mean the image automatically resizes for the browser*/
->>>>>>> tempwork:home/static/css/imaginemaiblog2.css
+	position: relative;
+	margin: 0 auto;
 
 }
 .overlay {
@@ -188,7 +179,7 @@ body {
 }
 
 * {box-sizing:border-box}
-body {font-family: Verdana,sans-serif;}
+/*body {font-family: Verdana,sans-serif;}*/
 .mySlides {display:none}
 
 /* Slideshow container */
@@ -196,6 +187,7 @@ body {font-family: Verdana,sans-serif;}
   max-width: 1000px;
   position: relative;
   margin: 0 auto;
+	clear:both;
 }
 
 /* Caption text */
@@ -254,4 +246,8 @@ body {font-family: Verdana,sans-serif;}
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
+}
+
+@media only screen and (min-device-width: 300px) {
+  .homeslide {max-width: 100%}
 }
