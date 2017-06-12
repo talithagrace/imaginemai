@@ -14,11 +14,15 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import socket
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 #production settings go here
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -77,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -137,6 +142,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #    os.path.join(BASE_DIR, 'static'),
 #)
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home2/media/media.lawrence.com/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = '/media/'
 
 import dj_database_url
 DATABASES = { 'default': dj_database_url.config(conn_max_age=500) }

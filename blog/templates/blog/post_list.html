@@ -15,8 +15,14 @@
       {% endif %}
       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
       <p>{{ post.text|linebreaksbr }}</p>
-
+      {% if post.pic %}
+      <img src="{{ post.pic.url }}" alt="{{ post.title }}" style="width:100%">
+      {% else %}
+      <p>...</p>
+        <!--  <img src="{{ STATIC_URL }}images/post.png" alt="{{ post.title }} image" />-->
+      {% endif %}
     </div>
+
   {% endfor %}
 </body>
 {% endblock %}

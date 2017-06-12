@@ -248,10 +248,10 @@ body {
   .text {font-size: 11px}
 }
 
-.rw {
+/*.rw {
 	float: right;
 
-}
+}*/
 .rw-wrapper{
 
 	overflow: auto;
@@ -263,8 +263,9 @@ body {
 }
 
 .rw-sentence{
-	margin: 0;
-	text-align: center;
+	margin-left: 0px;
+	margin-bottom: auto;
+	text-align: left;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
 }
 
