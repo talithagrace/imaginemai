@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm
+#import config.custom_storages
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

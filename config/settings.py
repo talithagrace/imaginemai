@@ -18,6 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
 #production settings go here
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'blog',
     'rest_framework',
     'corsheaders',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -136,12 +138,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
+#access key and secret key held in seperate location outside of project
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+STATICFILES_LOCATION = 'static'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #STATICFILES_DIRS = (
 #    os.path.join(BASE_DIR, 'static'),
 #)
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+STATICFILES_STORAGE = 'config.custom_storages.StaticStorage'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home2/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -149,7 +157,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/media/'
+MEDIAFILES_LOCATION = 'media'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+DEFAULT_FILE_STORAGE = 'config.custom_storages.MediaStorage'
+
 
 import dj_database_url
 DATABASES = { 'default': dj_database_url.config(conn_max_age=500) }
