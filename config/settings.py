@@ -139,6 +139,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+S3_USE_SIGV4 = True
+AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
 AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
 #access key and secret key held in seperate location outside of project
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
