@@ -142,6 +142,7 @@ USE_TZ = True
 AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
 #access key and secret key held in seperate location outside of project
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
 
 ##STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
 #PROJECT_DIR = os.path.join(BASE_DIR,'../blog')
