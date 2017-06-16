@@ -139,6 +139,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
+AWS_S3_REGION_NAME = 'eu-west-2' #(not documented)
+AWS_S3_SIGNATURE_VERSION = 's3v4' #(not documented)
 S3_USE_SIGV4 = True
 AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
 AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
