@@ -144,8 +144,8 @@ AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 #STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
-HOME_DIR = os.path.join(BASE_DIR,'../home')
-BLOG_DIR = os.path.join(BASE_DIR,'../blog')
+HOME_DIR = os.path.join(BASE_DIR,'/home')
+BLOG_DIR = os.path.join(BASE_DIR,'/blog')
 STATICFILES_LOCATION = 'static'
 STATICFILES_DIRS = (
     os.path.join(HOME_DIR, 'static/'),
@@ -153,8 +153,8 @@ STATICFILES_DIRS = (
 )
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 STATIC_ROOT = (
-    os.path.join(HOME_DIR, 'staticfiles/'),
-    os.path.join(BLOG_DIR, 'staticfiles/'),
+    os.path.join(HOME_DIR, 'static/'),
+    os.path.join(BLOG_DIR, 'static/'),
 )
 
 
