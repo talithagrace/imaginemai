@@ -142,12 +142,14 @@ AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
 #access key and secret key held in seperate location outside of project
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-#STATICFILES_LOCATION = 'static'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_DIRS)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
+STATICFILES_LOCATION = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 STATICFILES_STORAGE = 'config.custom_storages.StaticStorage'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
