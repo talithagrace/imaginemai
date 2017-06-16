@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 #production settings go here
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#os.path.abspath(os.path.dirname(__file__))
 
 
 
@@ -143,12 +144,13 @@ AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 #STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
-STATICFILES_LOCATION = '/static/'
+PROJECT_DIR = os.path.join(BASE_DIR,'../home')
+STATICFILES_LOCATION = 'static'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static/'),
 )
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
 
 
 STATICFILES_STORAGE = 'config.custom_storages.StaticStorage'
