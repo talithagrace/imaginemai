@@ -37,8 +37,9 @@ SECRET_KEY = 'm)m(7pr5+0_rq0wj3vl^y8gx4c0d7t4^3e150hq6_+w1%-myd3'
 
 #ALLOWED_HOSTS = []
 
-
+LOGIN_REDIRECT_URL = '/'
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -140,10 +141,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 
-AWS_S3_REGION_NAME = 'eu-west-2' #(not documented)
-AWS_S3_SIGNATURE_VERSION = 's3v4' #(not documented)
-S3_USE_SIGV4 = True
-AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
+AWS_S3_REGION_NAME = 'eu-west-2' #(not documented) - added to make heroku deploy work
+AWS_S3_SIGNATURE_VERSION = 's3v4' #(not documented) - added to make heorku deploy work
+S3_USE_SIGV4 = True #added to make heroku deploy work
+AWS_S3_HOST = 's3.eu-west-2.amazonaws.com' #added to make heroku deploy work
 AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
 #access key and secret key held in seperate location outside of project
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME

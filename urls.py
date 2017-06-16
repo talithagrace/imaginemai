@@ -20,6 +20,7 @@ from rest_framework import routers
 #from rest_framework.routers import DefaultRouter
 from blog.blog_views import PostViewSet
 from home import home_views #importing views from the home application
+from django.contrib.auth import views
 
 
 
@@ -41,6 +42,8 @@ urlpatterns = [
     #url(r'^$', home_views.index, name='home'),
     url(r'', include('blog.urls')),
     url(r'', include('home.urls')),
+    url(r'^accounts/login/$', views.login, name='login'),
+    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
