@@ -153,6 +153,7 @@ STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+
 STATICFILES_STORAGE = 'config.custom_storages.StaticStorage'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
