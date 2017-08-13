@@ -1,3 +1,16 @@
+#wrapper{
+	min-height: 100%;
+	position: relative;
+	background-image: url(images/birdandtree_1.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: 50% 10%;
+	/*background-size: 100% 180%;*/
+	background-size: cover; /*this mean the image automatically resizes for the browser*/
+}
+#header{
+
+}
 .page-header
 {
 	/*background-color: #595959;*/
@@ -119,9 +132,30 @@ p{
 	font-family: Courgette, cursive;
 	font-size: 14;
 }
-body {
-	position: relative;
-	margin: 0 auto;
+#body {
+	/*position: relative;
+	margin: 0 auto;*/
+	padding-bottom: 100px;
+
+}
+
+#footer{
+	position: absolute;
+	bottom: 0;
+	/*left: 0;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	clear: both;
+	margin-top: -150px;*/
+	padding: 5px 5px 5px 5px;
+	margin-left: 10px;
+	color: #000000;
+	background-color: #ffffff;
+	opacity: 0;
+	text-align: center;
+	height: 20px;
+	max-width: 100%;
+	/*border-style: solid;*/
 
 }
 .overlay {
