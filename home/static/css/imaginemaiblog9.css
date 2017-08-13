@@ -1,10 +1,10 @@
 #wrapper{
 	min-height: 100%;
 	position: relative;
-	background-image: url(images/birdandtree_1.jpg);
+	background-image: url(images/birdandtree_3.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-position: 50% 10%;
+	background-position: 10% 40%;
 	/*background-size: 100% 180%;*/
 	background-size: cover; /*this mean the image automatically resizes for the browser*/
 }
@@ -13,11 +13,12 @@
 }
 .page-header
 {
-	/*background-color: #595959;*/
+	/*background-color: #595959;
+	border-color: #000000;*/
 	background-color: #ffffff;
-    margin-top: 0;
-    padding: 10px 10px 10px 30px;
-		border-color: #000000;
+  margin-top: 0;
+  padding: 10px 10px 10px 30px;
+	opacity: 0.6;
 }
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #000000;
@@ -148,13 +149,12 @@ p{
 	clear: both;
 	margin-top: -150px;*/
 	padding: 5px 5px 5px 5px;
-	margin-left: 10px;
 	color: #000000;
 	background-color: #ffffff;
-	opacity: 0;
+	opacity: 0.6;
 	text-align: center;
-	height: 20px;
-	max-width: 100%;
+	height: 60px;
+	width: 100%;
 	/*border-style: solid;*/
 
 }

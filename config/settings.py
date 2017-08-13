@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 
 #production settings go here
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #os.path.abspath(os.path.dirname(__file__))
 
 
@@ -137,38 +138,43 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+if 'AWS_ACCESS_KEY_ID' in os.environ:
+    AWS_S3_REGION_NAME = 'eu-west-2' #(not documented) - added to make heroku deploy work
+    AWS_S3_SIGNATURE_VERSION = 's3v4' #(not documented) - added to make heorku deploy work
+    S3_USE_SIGV4 = True #added to make heroku deploy work
+    AWS_S3_HOST = 's3.eu-west-2.amazonaws.com' #added to make heroku deploy work
+    AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
+    #access key and secret key held in seperate location outside of project
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
 
-AWS_S3_REGION_NAME = 'eu-west-2' #(not documented) - added to make heroku deploy work
-AWS_S3_SIGNATURE_VERSION = 's3v4' #(not documented) - added to make heorku deploy work
-S3_USE_SIGV4 = True #added to make heroku deploy work
-AWS_S3_HOST = 's3.eu-west-2.amazonaws.com' #added to make heroku deploy work
-AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
-#access key and secret key held in seperate location outside of project
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
-
-##STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
-#PROJECT_DIR = os.path.join(BASE_DIR,'../blog')
-STATICFILES_LOCATION = 'static'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'staticfiles'),
-)
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    ##STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
+    #PROJECT_DIR = os.path.join(BASE_DIR,'../blog')
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'staticfiles'),
+        )
+    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    # Absolute filesystem path to the directory that will hold user-uploaded files.
+    #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIAFILES_LOCATION = 'media'
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-
+    # URL that handles the media served from MEDIA_ROOT. Make sure to use a
+    # trailing slash.
+    # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+    MEDIAFILES_LOCATION = 'media'
+    MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    MEDIA_URL = '/media/'
+    # Absolute filesystem path to the directory that will hold user-uploaded files.
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 import dj_database_url
 DATABASES = { 'default': dj_database_url.config(conn_max_age=500) }
