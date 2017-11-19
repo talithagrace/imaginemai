@@ -1,7 +1,7 @@
 {% load staticfiles %} <!--load css or static files-->
 <html>
 <div id="wrapper">
-<div id="header">
+
 <head>
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -15,9 +15,9 @@
 
     <title>Imagine Mai</title>
 </head>
-</div> <!--header-->
 
 
+<div id="header">
 <div class="page-header">
       <h1><span style="font-size:30px;color:#000000;cursor:pointer" onclick="openNav()"> &#9826;</span><a href="/">Imagine Mai</a><span style="font-size:30px;color:#000000;cursor:pointer" onclick="openNav()"> &#9826;</span></h1>
 <div id="myNav" class="overlay">
@@ -31,6 +31,7 @@
   </div>
   </div>
 
+
 <script>
 function openNav() {
   document.getElementById("myNav").style.height = "100%";
@@ -41,6 +42,7 @@ function closeNav() {
 }
 </script>
 </div> <!--page header-->
+</div> <!--header-->
 
 <div id="body">
   <div class="content container">
@@ -62,5 +64,6 @@ function closeNav() {
   <p style="color:#000000">&copy; copyright 2017 by <a href="https://www.talithagrace.com/" style="color:#000000">talitha-grace</a>. all rights reserved</p>
   <!--<p class="w3-medium">Web development by <a href="https://www.talithagrace.com/" target="_blank" class="w3-hover-text-green">talitha-grace</a></p>-->
 </div>
+
 </div>
 </html>
