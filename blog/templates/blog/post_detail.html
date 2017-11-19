@@ -3,11 +3,11 @@
 {% load staticfiles %} <!--load css or static files-->
 {% block content %}
     <div class="post">
-        {% if post.published_date %}
+      <!--  {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
-        {% endif %}
+        {% endif %}-->
 
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
