@@ -1,9 +1,14 @@
 from django.test import TestCase
 from django.test.client import Client
+
 # Create your tests here.
 
 class HomeViewsTests(TestCase):
-    c = Client()
+
+    @classmethod
+    def setUpTestData(cls):
+        c = Client()
+
 
     def test_index(self):
         resp = self.c.get('')

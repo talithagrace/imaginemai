@@ -4,9 +4,9 @@
 {% block content %}
 <body>
   {% if user.is_authenticated %}
-  <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+  <a href="{% url 'post_new' %}" class="top-menu">post new<span class="glyphicon glyphicon-plus"></span></a>
   {% else %}
-  <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+  <a href="{% url 'login' %}" class="top-menu">login<span class="glyphicon glyphicon-lock"></span></a>
   {% endif %}
   {% for post in posts %}
     <div class="post">
