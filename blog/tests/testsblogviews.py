@@ -13,8 +13,8 @@ class BlogViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         my_user = User.objects.create_user(username='testgrace', email='testgrace@grace.com', password='secret')
-        Post.objects.create(author=my_user, title='test post', text='blablabla', published_date=timezone.now())
-        #testpost.save()
+        Post.objects.create(author=my_user, title='test post2', text='blablabla', published_date=timezone.now())
+        Post.objects.create(author=my_user, title='test post3', text='blablabla', published_date=timezone.now())
 
     def test_post_detail(self):
         resp = self.c.get('/post/1/')
@@ -29,6 +29,25 @@ class BlogViewTest(TestCase):
 
     def test_post_save(self):
         login = self.c.login(username='testgrace', password='secret')
-        #testpost = PostForm(data={'title': "blabla", 'text': "extra bla"})
         resp = self.c.post('/post/new/', {'title': "blabla", 'text': "extra bla"})
-        self.assertRedirects(resp, '/post/2/' )
+        self.assertRedirects(resp, '/post/3/' )
+
+    def test_post_edit(self):
+        login = self.c.login(username='testgrace', password='secret')
+        post = Post.objects.get(id=2)
+        resp = self.c.post('/post/2/edit/', {'post': post})
+        self.assertEquals(resp.status_code, 200)
+
+    def test_save_edit(self):
+        login = self.c.login(username='testgrace', password='secret')
+        testpost = Post.objects.get(id=2)
+        self.c.get('/post/2/', {'testpost': testpost})
+        resp = self.c.post('/post/2/edit/', {'title': "yellow", 'text': "fafallefafalle", 'published_date': timezone.now()})
+        self.assertRedirects(resp, '/post/2/')
+
+#    def test_post_remove(self):
+#        login = self.c.login(username='testgrace', password='secret')
+#        testpost = Post.objects.get(id=1)
+#        self.c.get('/post/1/', {'testpost': testpost})
+#        resp = self.c.post('/post/1/remove/', {'testpost': testpost})
+#        self.assertRedirects(resp, '/post_list/')

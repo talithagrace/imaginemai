@@ -9,7 +9,6 @@ class HomeViewsTests(TestCase):
     def setUpTestData(cls):
         c = Client()
 
-
     def test_index(self):
         resp = self.c.get('')
         self.assertEqual(resp.status_code, 200)

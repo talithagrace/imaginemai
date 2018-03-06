@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from blog.models import Post
 from django.core.files.uploadedfile import SimpleUploadedFile
-
+from django.utils import timezone
 
 
 # Create your tests here.
@@ -14,7 +14,8 @@ class PostModelTest(TestCase):
         my_user = User.objects.create_user(username='testgrace', email='testgrace@grace.com', password='secret')
         image_path = r'''C:\Users\grace\Documents\portfolioimage.png'''
         my_image = SimpleUploadedFile(name='portfolioimage.png', content=open(image_path, 'rb').read(), content_type='image/png')
-        Post.objects.create(author=my_user, title='test post', text='blablabla', pic=my_image)
+        Post.objects.create(author=my_user, title='test post', text='blablabla', pic=my_image, published_date=timezone.now())
+        Post.objects.create(author=my_user, title='test post3', text='blablabla', published_date=timezone.now())
 
     def test_title_max_length(self):
         post=Post.objects.get(id=1)

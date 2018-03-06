@@ -212,17 +212,7 @@ p{
   }
 }
 
-* {box-sizing:border-box}
-/*body {font-family: Verdana,sans-serif;}*/
-.mySlides {display:none}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: 0 auto;
-	clear:both;
-}
 
 /* Caption text */
 .text {
