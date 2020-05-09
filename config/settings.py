@@ -153,7 +153,7 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
     #PROJECT_DIR = os.path.join(BASE_DIR,'../blog')
     STATICFILES_LOCATION = 'static'
     STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'staticfiles'),
+        os.path.join(BASE_DIR, 'static'),
         )
     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
