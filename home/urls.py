@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import path
 from . import home_views
 
 urlpatterns = [
-    url(r'^$', home_views.index, name='home'),
-    url(r'^post_list/', home_views.post_list, name='post_list'),
+    path('', home_views.index, name='home'),
+    path('post_list/', home_views.post_list, name='post_list'),
 ]

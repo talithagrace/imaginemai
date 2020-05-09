@@ -14,13 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 import socket
-from django.conf.urls import include, url
+from django.urls import path, include
 from django.contrib import admin
 from rest_framework import routers
 #from rest_framework.routers import DefaultRouter
 from blog.blog_views import PostViewSet
 from home import home_views #importing views from the home application
-from django.contrib.auth import views
+from django.contrib.auth import views as auth_views
 
 
 
@@ -40,11 +40,10 @@ admin.autodiscover()
 #urlpatterns = router.urls
 urlpatterns = [
     #url(r'^$', home_views.index, name='home'),
-    url(r'', include('blog.urls')),
-    url(r'', include('home.urls')),
-    url(r'^accounts/login/$', views.login, name='login'),
-    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('', include('blog.urls')),
+    path('', include('home.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
