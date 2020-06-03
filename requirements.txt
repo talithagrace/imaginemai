@@ -1,5 +1,5 @@
 asgiref==3.2.7
-awscli==1.11.104
+awscli==1.18.71
 boto3==1.13.21
 botocore==1.16.21
 colorama==0.3.7
