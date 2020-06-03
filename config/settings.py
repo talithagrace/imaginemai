@@ -143,12 +143,12 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
     AWS_S3_REGION_NAME = 'eu-west-2' #(not documented) - added to make heroku deploy work
     AWS_S3_SIGNATURE_VERSION = 's3v4' #(not documented) - added to make heorku deploy work
     S3_USE_SIGV4 = True #added to make heroku deploy work
-    AWS_S3_HOST = 's3.eu-west-2.amazonaws.com' #added to make heroku deploy work
+    #AWS_S3_HOST = 's3.eu-west-2.amazonaws.com' #added to make heroku deploy work
     AWS_STORAGE_BUCKET_NAME = 'imaginemaipics'
     #access key and secret key held in seperate location outside of project
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-    AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
-
+    #AWS_S3_HOST = 's3.eu-west-2.amazonaws.com'
+    AWS_S3_ENDPOINT_URL = 's3.eu-west-2.amazonaws.com' #updated
     ##STATICFILES_LOCATION = os.path.join(BASE_DIR, 'static')
     #PROJECT_DIR = os.path.join(BASE_DIR,'../blog')
     STATICFILES_LOCATION = 'static'
